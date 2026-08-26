@@ -45,11 +45,11 @@
 
         <nav class="primary-nav" id="primaryNav">
           <ul>
-            <li><a href="home.html" class="is-active">Home</a></li>
-            <li><a href="#leadership">Leaders</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="../pages/events.html">Events</a></li>
-            <li><a href="home.html#contact">Contact</a></li>
+            <li><a href="home.html" data-nav="hero">Home</a></li>
+            <li><a href="#leadership" data-nav="leadership">Leaders</a></li>
+            <li><a href="#about" data-nav="about">About</a></li>
+            <li><a href="#events" data-nav="events">Events</a></li>
+            <li><a href="#site-footer" data-nav="site-footer">Contact</a></li>
           </ul>
           <a
             class="btn btn-gold nav-cta"
@@ -131,7 +131,7 @@
 
           <div class="leadership-carousel">
             <!-- MEDIA -->
-            <div class="leadership-media">
+            <div class="leadership-media reveal from-left">
               <!-- Person 1 -->
               <div class="leadership-media-item is-active" data-person="0">
                 <img src="./assets/chairman.jpg" alt="John Ayson Simon" />
@@ -207,7 +207,10 @@
             </div>
 
             <!-- PROFILE INFORMATION -->
-            <div class="leadership-info">
+            <div
+              class="leadership-info reveal from-right"
+              style="--reveal-delay: 0.15s"
+            >
               <!-- Person 1 -->
               <article class="leadership-profile is-active" data-person="0">
                 <p class="leadership-role">
@@ -306,7 +309,7 @@
       <!-- ===================== ABOUT + GALLERY ===================== -->
       <section class="about" id="about">
         <div class="container">
-          <div class="about-heading">
+          <div class="about-heading reveal from-bottom">
             <p class="eyebrow about-eyebrow">
               <span class="eyebrow-bar"></span>
               About FIS
@@ -327,49 +330,81 @@
 
             <div class="gallery-viewport">
               <div class="gallery-track" id="galleryTrack">
-                <button class="gallery-item" data-full="./assets/gallery1.jpg">
+                <button
+                  class="gallery-item reveal scale-in"
+                  data-full="./assets/gallery1.jpg"
+                  style="--reveal-delay: 0s"
+                >
                   <img
                     src="./assets/gallery1.jpg"
                     alt="FIS members at a National Inventors Week ceremony"
                   />
                 </button>
-                <button class="gallery-item" data-full="./assets/gallery2.jpg">
+                <button
+                  class="gallery-item reveal scale-in"
+                  data-full="./assets/gallery2.jpg"
+                  style="--reveal-delay: 0.06s"
+                >
                   <img
                     src="./assets/gallery2.jpg"
                     alt="FIS ribbon-cutting ceremony"
                   />
                 </button>
-                <button class="gallery-item" data-full="./assets/gallery3.jpg">
+                <button
+                  class="gallery-item reveal scale-in"
+                  data-full="./assets/gallery3.jpg"
+                  style="--reveal-delay: 0.12s"
+                >
                   <img
                     src="./assets/gallery3.jpg"
                     alt="FIS 76th anniversary celebration"
                   />
                 </button>
-                <button class="gallery-item" data-full="./assets/gallery4.jpg">
+                <button
+                  class="gallery-item reveal scale-in"
+                  data-full="./assets/gallery4.jpg"
+                  style="--reveal-delay: 0.18s"
+                >
                   <img
                     src="./assets/gallery4.jpg"
                     alt="FIS members and guests"
                   />
                 </button>
-                <button class="gallery-item" data-full="./assets/gallery5.jpg">
+                <button
+                  class="gallery-item reveal scale-in"
+                  data-full="./assets/gallery5.jpg"
+                  style="--reveal-delay: 0.24s"
+                >
                   <img
                     src="./assets/gallery5.jpg"
                     alt="FIS awarding ceremony"
                   />
                 </button>
-                <button class="gallery-item" data-full="./assets/gallery6.jpg">
+                <button
+                  class="gallery-item reveal scale-in"
+                  data-full="./assets/gallery6.jpg"
+                  style="--reveal-delay: 0.3s"
+                >
                   <img
                     src="./assets/gallery6.jpg"
                     alt="FIS event program presentation"
                   />
                 </button>
-                <button class="gallery-item" data-full="./assets/gallery7.jpg">
+                <button
+                  class="gallery-item reveal scale-in"
+                  data-full="./assets/gallery7.jpg"
+                  style="--reveal-delay: 0.36s"
+                >
                   <img
                     src="./assets/gallery7.jpg"
                     alt="FIS members receiving recognition"
                   />
                 </button>
-                <button class="gallery-item" data-full="./assets/gallery8.jpg">
+                <button
+                  class="gallery-item reveal scale-in"
+                  data-full="./assets/gallery8.jpg"
+                  style="--reveal-delay: 0.42s"
+                >
                   <img
                     src="./assets/gallery8.jpg"
                     alt="FIS members group photo"
@@ -388,7 +423,10 @@
           </div>
 
           <!-- HISTORY -->
-          <div class="about-history">
+          <div
+            class="about-history reveal from-bottom"
+            style="--reveal-delay: 0.1s"
+          >
             <p>
               The Filipino Inventors Society (FIS) is a duly registered
               non-government organization of Filipino inventors who hold patents
@@ -430,7 +468,7 @@
       <!-- ===================== LEGACY + MAP ===================== -->
       <section class="legacy" id="legacy">
         <div class="legacy-grid">
-          <div class="legacy-content container">
+          <div class="legacy-content container reveal from-left">
             <p class="eyebrow legacy-eyebrow">
               <span class="eyebrow-bar"></span>
               Legacy &amp; Global Recognition
@@ -470,7 +508,10 @@
             </div>
           </div>
 
-          <div class="legacy-map">
+          <div
+            class="legacy-map reveal from-right"
+            style="--reveal-delay: 0.15s"
+          >
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7725.845106493057!2d121.04679387446605!3d14.489135259493962!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397cf11844b13a5%3A0xa1d8a3cfa3535430!2sFilipino%20Inventors%20Society!5e0!3m2!1sen!2sph!4v1622002675015!5m2!1sen!2sph"
               loading="lazy"
@@ -521,7 +562,10 @@
             </div>
           </div>
 
-          <div class="event-banner-content">
+          <div
+            class="event-banner-content reveal from-bottom"
+            style="--reveal-delay: 0.15s"
+          >
             <div class="event-banner-inner">
               <h3 class="event-banner-title">NIW 2021: OPHIR</h3>
               <p class="event-tag">By FIS &middot; Posted October 1, 2021</p>
@@ -557,7 +601,7 @@
         <div class="container events-footer-block">
           <div class="event-registration">
             <!-- LEFT: REGISTRATION DETAILS -->
-            <div class="event-details">
+            <div class="event-details reveal from-left">
               <div class="event-detail-row">
                 <span class="event-detail-label">Title</span>
                 <span class="event-detail-value"
@@ -586,7 +630,10 @@
             </div>
 
             <!-- RIGHT: TITLE + PRIVACY NOTE + BUTTONS -->
-            <div class="event-registration-content">
+            <div
+              class="event-registration-content reveal from-right"
+              style="--reveal-delay: 0.15s"
+            >
               <h3 class="event-registration-title">
                 Contestant Registration to the National Inventors Week (NIW)
                 2021
@@ -639,8 +686,8 @@
     </main>
 
     <!-- ===================== FOOTER ===================== -->
-    <footer class="site-footer">
-      <div class="container footer-grid">
+    <footer class="site-footer" id="site-footer">
+      <div class="container footer-grid reveal from-bottom">
         <div class="footer-brand">
           <img
             src="./assets/fislogo1.png"

@@ -246,3 +246,77 @@ document.addEventListener("DOMContentLoaded", () => {
     window.location.href = `mailto:info@fis.com.ph?subject=${subject}&body=${body}`;
   });
 });
+
+/* ============================================================
+   SCROLL REVEAL OBSERVER
+   ============================================================ */
+
+document.addEventListener("DOMContentLoaded", () => {
+  const reveals = document.querySelectorAll(".reveal");
+  if (!reveals.length) return;
+
+  const reduceMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ).matches;
+  if (reduceMotion) {
+    reveals.forEach((el) => el.classList.add("is-visible"));
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15, rootMargin: "0px 0px -60px 0px" },
+  );
+
+  reveals.forEach((el) => observer.observe(el));
+});
+
+/* ============================================================
+   SCROLLSPY — highlight nav link for section in view
+   ============================================================ */
+
+document.addEventListener("DOMContentLoaded", () => {
+  const navLinks = document.querySelectorAll(".primary-nav a[data-nav]");
+  if (!navLinks.length) return;
+
+  const sectionIds = Array.from(navLinks).map((link) => link.dataset.nav);
+  const sections = sectionIds
+    .map((id) => document.getElementById(id))
+    .filter(Boolean);
+
+  if (!sections.length) return;
+
+  function setActive(id) {
+    navLinks.forEach((link) => {
+      link.classList.toggle("is-active", link.dataset.nav === id);
+    });
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActive(entry.target.id);
+        }
+      });
+    },
+    {
+      rootMargin: "-45% 0px -45% 0px", // triggers when section crosses the vertical middle of the viewport
+      threshold: 0,
+    },
+  );
+
+  sections.forEach((section) => observer.observe(section));
+
+  // Default to Home when at the very top of the page
+  window.addEventListener("scroll", () => {
+    if (window.scrollY < 200) setActive("hero");
+  });
+});
