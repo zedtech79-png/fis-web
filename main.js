@@ -320,3 +320,32 @@ document.addEventListener("DOMContentLoaded", () => {
     if (window.scrollY < 200) setActive("hero");
   });
 });
+
+/* ============================================================
+   HERO INFO CARD — slides in/out with hero visibility
+   ============================================================ */
+
+document.addEventListener("DOMContentLoaded", () => {
+  const heroSection = document.getElementById("hero");
+  const infoCard = document.querySelector(".hero-info-card");
+  if (!heroSection || !infoCard) return;
+
+  const reduceMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ).matches;
+  if (reduceMotion) {
+    infoCard.classList.add("is-visible");
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        infoCard.classList.toggle("is-visible", entry.isIntersecting);
+      });
+    },
+    { threshold: 0.4 },
+  );
+
+  observer.observe(heroSection);
+});
